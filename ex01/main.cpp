@@ -6,11 +6,12 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:40:39 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/04 19:24:37 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:49:36 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:57:15 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/04 19:00:04 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/04 23:26:20 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Bureaucrat::Bureaucrat(void) : _name("Billy")
 {
 	this->_grade = 150;
-	std::cout << "Default constructor was called" << std::endl;
+	std::cout << "Default bureaucrat constructor was called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : _name(name)
@@ -79,6 +79,7 @@ void Bureaucrat::incrementGrade(void)
 	catch (const Bureaucrat::GradeTooHighException &e)
 	{
 		std::cerr << e.what() << std::endl;
+		std::cout << "Bureaucrat " << this->_name << " already has the highest rank" << std::endl;
 	}
 }
 
@@ -94,12 +95,13 @@ void Bureaucrat::decrementGrade(void)
 	catch (const Bureaucrat::GradeTooLowException &e)
 	{
 		std::cerr << e.what() << std::endl;
+		std::cout << "Bureaucrat " << this->_name << " already has the lowest rank" << std::endl;
 	}
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Destructor was called" << std::endl;
+	std::cout << "Bureaucrat destructor was called" << std::endl;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()

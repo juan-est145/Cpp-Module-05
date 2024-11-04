@@ -1,11 +1,13 @@
 NAME = bureaucrat.out
 
 SRCS = Bureaucrat.cpp\
+Form.cpp\
 main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
 HEADER = Bureaucrat.hpp\
+Form.hpp\
 
 CXX = $(shell which c++ clang++ g++ | head -n 1)
 

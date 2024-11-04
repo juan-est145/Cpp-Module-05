@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:57:15 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/04 19:00:04 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/04 23:49:57 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,12 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Destructor was called" << std::endl;
 }
 
-const char *Bureaucrat::GradeTooHighException::what() const throw()
+const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return ("Grade is too high, the maximum is 1");
 }
 
-const char *Bureaucrat::GradeTooLowException::what() const throw()
+const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return ("Grade is too low, the minimum is 150");
 }

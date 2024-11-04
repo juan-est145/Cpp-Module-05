@@ -5,12 +5,39 @@
 #include <string>
 #include <exception>
 
+class Bureaucrat;
+
 class Form
 {
 private:
-	/* data */
+	const std::string _name;
+	bool _isSigned;
+	const unsigned int _signGrade;
+	const unsigned int _executeGrade;
+
 public:
 	Form(void);
+	Form(const std::string name, unsigned int signGrade, unsigned int executeGrade);
+	Form(const Form &toCopy);
+	Form &operator=(const Form &toCopy);
+	std::string getName(void);
+	bool isSigned(void);
+	unsigned int getSignGrade();
+	unsigned int getExecuteGrade();
+	void beSigned(const Bureaucrat &Bureaucrat);
 	~Form(void);
+
+	class GradeTooHighException : std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
+	class GradeTooLowException : std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
 };
+std::ostream &operator<<(std::ostream &out, const Form &Form);
+
 #endif

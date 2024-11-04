@@ -1,0 +1,1 @@
+#ifndef BUREAUCRAT_HPP

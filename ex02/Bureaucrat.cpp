@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:57:15 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 12:47:49 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:26:14 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void Bureaucrat::signForm(AForm &Form)
 		if (Form.isSigned())
 		{
 			std::cout << "Form " << Form.getTarget() << " has already been signed" << std::endl;
-			return ;
+			return;
 		}
 		Form.beSigned(*this);
 		std::cout << "Bureaucrat " << this->getName() << " signed Form " << Form.getTarget() << std::endl;
@@ -126,11 +126,11 @@ void Bureaucrat::executeForm(AForm const &form) const
 		form.execute(*this);
 		std::cout << this->_name << " executed form with target " << form.getTarget() << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooLowException& e)
+	catch (const Bureaucrat::GradeTooLowException &e)
 	{
 		std::cerr << "Can't execute form, " << e.what() << '\n';
 	}
-	catch(const AForm::FormIsNotSignedException& e)
+	catch (const AForm::FormIsNotSignedException &e)
 	{
 		std::cerr << "Can't execute form, " << e.what() << '\n';
 	}

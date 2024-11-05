@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:24:34 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 10:22:30 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:26:12 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ Form::Form(const std::string name, unsigned int signGrade, unsigned int executeG
 	catch (const Form::GradeTooHighException &e)
 	{
 		std::cerr << e.what() << '\n';
-		this->_executeGrade < 1 ? const_cast<unsigned int&>(this->_executeGrade) = 1 : this->_executeGrade;
-		this->_signGrade < 1 ? const_cast<unsigned int&>(this->_signGrade) = 1 : this->_signGrade;
+		this->_executeGrade < 1 ? const_cast<unsigned int &>(this->_executeGrade) = 1 : this->_executeGrade;
+		this->_signGrade < 1 ? const_cast<unsigned int &>(this->_signGrade) = 1 : this->_signGrade;
 		std::cout << "Form " << this->_name << " has had it's grades corrected to the highest possible value" << std::endl;
 	}
 	catch (const Form::GradeTooLowException &e)

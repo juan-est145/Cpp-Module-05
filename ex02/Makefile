@@ -4,6 +4,7 @@ SRCS = Bureaucrat.cpp\
 AForm.cpp\
 RobotomyRequestForm.cpp\
 PresidentialPardonForm.cpp\
+ShrubberyCreationForm.cpp\
 main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
@@ -11,6 +12,7 @@ OBJS = $(SRCS:.cpp=.o)
 HEADER = Bureaucrat.hpp\
 RobotomyRequestForm.hpp\
 PresidentialPardonForm.hpp\
+ShrubberyCreationForm.hpp\
 AForm.hpp\
 
 CXX = $(shell which c++ clang++ g++ | head -n 1)

@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:24:34 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 12:46:44 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:26:13 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ AForm::AForm(const std::string target, unsigned int signGrade, unsigned int exec
 	catch (const AForm::GradeTooHighException &e)
 	{
 		std::cerr << e.what() << '\n';
-		this->_executeGrade < 1 ? const_cast<unsigned int&>(this->_executeGrade) = 1 : this->_executeGrade;
-		this->_signGrade < 1 ? const_cast<unsigned int&>(this->_signGrade) = 1 : this->_signGrade;
+		this->_executeGrade < 1 ? const_cast<unsigned int &>(this->_executeGrade) = 1 : this->_executeGrade;
+		this->_signGrade < 1 ? const_cast<unsigned int &>(this->_signGrade) = 1 : this->_signGrade;
 		std::cout << "Form " << this->_target << " has had it's grades corrected to the highest possible value" << std::endl;
 	}
 	catch (const AForm::GradeTooLowException &e)
@@ -79,7 +79,7 @@ void AForm::beSigned(const Bureaucrat &Bureaucrat)
 	this->_isSigned = true;
 }
 
-void AForm::checkValidity(const Bureaucrat &Bureaucrat) const 
+void AForm::checkValidity(const Bureaucrat &Bureaucrat) const
 {
 	if (!this->_isSigned)
 		throw AForm::FormIsNotSignedException();
@@ -87,7 +87,7 @@ void AForm::checkValidity(const Bureaucrat &Bureaucrat) const
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void AForm::execute(Bureaucrat const &executor) const 
+void AForm::execute(Bureaucrat const &executor) const
 {
 	this->checkValidity(executor);
 	std::cout << "This form has been executed" << std::endl;

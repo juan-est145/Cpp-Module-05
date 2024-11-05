@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:57:15 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 09:25:21 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:26:11 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void Bureaucrat::signForm(Form &Form)
 		if (Form.isSigned())
 		{
 			std::cout << "Form " << Form.getName() << " has already been signed" << std::endl;
-			return ;
+			return;
 		}
 		Form.beSigned(*this);
 		std::cout << "Bureaucrat " << this->getName() << " signed Form " << Form.getName() << std::endl;

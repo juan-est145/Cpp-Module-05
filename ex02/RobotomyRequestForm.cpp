@@ -6,13 +6,13 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:21:02 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 12:38:43 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:26:16 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm("Deafault", 75, 45) 
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("Deafault", 75, 45)
 {
 	std::cout << "Robotomy form has been created" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:40:39 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 13:26:17 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:50:20 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
+	Intern intern;
 	Bureaucrat highOne("Jimena", 1);
 	Bureaucrat lowOne("Paco", 72);
-	RobotomyRequestForm *robotomy = new RobotomyRequestForm("Someone");
-	RobotomyRequestForm *lowExec = new RobotomyRequestForm("lowExec");
-	PresidentialPardonForm *pardon = new PresidentialPardonForm("Arthur");
-	ShrubberyCreationForm *shrubbery = new ShrubberyCreationForm("Arbol");
+	AForm *robotomy = intern.makeForm("robotomy", "Someone");
+	AForm *lowExec = intern.makeForm("robotomy", "lowExec");
+	AForm *pardon = intern.makeForm("presidentialPardon", "Arthur");
+	AForm *shrubbery = intern.makeForm("shrubbery", "Arbol");
+
 	std::cout << "\n";
 
 	{

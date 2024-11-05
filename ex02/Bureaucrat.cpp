@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:57:15 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 12:25:06 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:47:49 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void Bureaucrat::signForm(AForm &Form)
 		Form.beSigned(*this);
 		std::cout << "Bureaucrat " << this->getName() << " signed Form " << Form.getTarget() << std::endl;
 	}
-	catch (const AForm::GradeTooLowException &e)
+	catch (const AForm::GradeTooHighException &e)
 	{
 		std::cerr << e.what() << '\n';
 		std::cout << "Bureaucrat " << this->getName() << " does not have clearance to sign this form" << std::endl;

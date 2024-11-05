@@ -3,12 +3,14 @@ NAME = newForms.out
 SRCS = Bureaucrat.cpp\
 AForm.cpp\
 RobotomyRequestForm.cpp\
+PresidentialPardonForm.cpp\
 main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
 HEADER = Bureaucrat.hpp\
 RobotomyRequestForm.hpp\
+PresidentialPardonForm.hpp\
 AForm.hpp\
 
 CXX = $(shell which c++ clang++ g++ | head -n 1)

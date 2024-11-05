@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:24:34 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 11:59:11 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:46:44 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ unsigned int AForm::getExecuteGrade(void) const
 void AForm::beSigned(const Bureaucrat &Bureaucrat)
 {
 	if (Bureaucrat.getGrade() > this->_signGrade)
-		throw AForm::GradeTooLowException();
+		throw AForm::GradeTooHighException();
 	this->_isSigned = true;
 }
 
-void AForm::checkExecGrade(const Bureaucrat &Bureaucrat) const 
+void AForm::checkValidity(const Bureaucrat &Bureaucrat) const 
 {
 	if (!this->_isSigned)
 		throw AForm::FormIsNotSignedException();
@@ -89,7 +89,7 @@ void AForm::checkExecGrade(const Bureaucrat &Bureaucrat) const
 
 void AForm::execute(Bureaucrat const &executor) const 
 {
-	this->checkExecGrade(executor);
+	this->checkValidity(executor);
 	std::cout << "This form has been executed" << std::endl;
 }
 
@@ -100,12 +100,12 @@ AForm::~AForm(void)
 
 const char *AForm::GradeTooHighException::what(void) const throw()
 {
-	return ("Form grade is too high, maximum is 1");
+	return ("Form grade is too high");
 }
 
 const char *AForm::GradeTooLowException::what(void) const throw()
 {
-	return ("Form grade is too low, minimum is 150");
+	return ("Form grade is too low");
 }
 
 const char *AForm::FormIsNotSignedException::what(void) const throw()

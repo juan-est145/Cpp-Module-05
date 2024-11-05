@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:40:39 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/04 19:49:36 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 09:36:30 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,38 @@
 
 int main(void)
 {
+	/*Form firstOne("Paco", 5);
+	Bureaucrat secondOne("Loli", 0);
+	Bureaucrat thirdOne("Sisebuto", 154);
+	Bureaucrat fourthOne;
+
+	std::cout << firstOne << std::endl;
+	std::cout << secondOne << std::endl;
+	std::cout << thirdOne << std::endl;
+	std::cout << fourthOne << std::endl;
+
+	firstOne.incrementGrade();
+	firstOne.decrementGrade();
+	secondOne.incrementGrade();
+	thirdOne.decrementGrade();
+	return (0);*/
+
+	Form firstOne("Demolition form", 5, 5);
+	Form secondOne("Labor Form", 2, 0);
+	Form thirdOne("Other labor Form", 0, 2);
+	Form fourthOne("Bar Form", 200, 150);
+	Form fifthOne("Other bar Form", 150, 200);
+
+	std::cout << firstOne << std::endl;
+	std::cout << secondOne << std::endl;
+	std::cout << thirdOne << std::endl;
+	std::cout << fourthOne << std::endl;
+	std::cout << fifthOne << std::endl;
+
+	Bureaucrat highBureaucrat("Jeff", 1);
+	Bureaucrat lowBureaucrat("Manny", 150);
+
+	highBureaucrat.signForm(secondOne);
+	lowBureaucrat.signForm(thirdOne);
 	return (0);
 }

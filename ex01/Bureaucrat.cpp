@@ -6,11 +6,12 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:57:15 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/04 23:26:20 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 09:25:21 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Billy")
 {
@@ -96,6 +97,25 @@ void Bureaucrat::decrementGrade(void)
 	{
 		std::cerr << e.what() << std::endl;
 		std::cout << "Bureaucrat " << this->_name << " already has the lowest rank" << std::endl;
+	}
+}
+
+void Bureaucrat::signForm(Form &Form)
+{
+	try
+	{
+		if (Form.isSigned())
+		{
+			std::cout << "Form " << Form.getName() << " has already been signed" << std::endl;
+			return ;
+		}
+		Form.beSigned(*this);
+		std::cout << "Bureaucrat " << this->getName() << " signed Form " << Form.getName() << std::endl;
+	}
+	catch (const Form::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << '\n';
+		std::cout << "Bureaucrat " << this->getName() << " does not have clearance to sign this form" << std::endl;
 	}
 }
 

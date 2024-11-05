@@ -1,13 +1,15 @@
-NAME = form.out
+NAME = newForms.out
 
 SRCS = Bureaucrat.cpp\
-Form.cpp\
+AForm.cpp\
+RobotomyRequestForm.cpp\
 main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
 HEADER = Bureaucrat.hpp\
-Form.hpp\
+RobotomyRequestForm.hpp\
+AForm.hpp\
 
 CXX = $(shell which c++ clang++ g++ | head -n 1)
 

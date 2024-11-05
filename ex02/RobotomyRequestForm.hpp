@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -14,7 +15,7 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm &toCopy);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &toCopy);
 	void execute(Bureaucrat const &executor) const;
-	~RobotomyRequestForm(void);
+	virtual ~RobotomyRequestForm(void);
 };
 
 #endif

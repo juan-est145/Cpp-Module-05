@@ -6,12 +6,12 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:57:15 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 09:25:21 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:07:55 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Billy")
 {
@@ -100,22 +100,39 @@ void Bureaucrat::decrementGrade(void)
 	}
 }
 
-void Bureaucrat::signForm(Form &Form)
+void Bureaucrat::signForm(AForm &Form)
 {
 	try
 	{
 		if (Form.isSigned())
 		{
-			std::cout << "Form " << Form.getName() << " has already been signed" << std::endl;
+			std::cout << "Form " << Form.getTarget() << " has already been signed" << std::endl;
 			return ;
 		}
 		Form.beSigned(*this);
-		std::cout << "Bureaucrat " << this->getName() << " signed Form " << Form.getName() << std::endl;
+		std::cout << "Bureaucrat " << this->getName() << " signed Form " << Form.getTarget() << std::endl;
 	}
-	catch (const Form::GradeTooLowException &e)
+	catch (const AForm::GradeTooLowException &e)
 	{
 		std::cerr << e.what() << '\n';
 		std::cout << "Bureaucrat " << this->getName() << " does not have clearance to sign this form" << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed form with target " << form.getTarget() << std::endl;
+	}
+	catch(const Bureaucrat::GradeTooLowException& e)
+	{
+		std::cerr << "Can't execute form, " << e.what() << '\n';
+	}
+	catch(const AForm::FormIsNotSignedException& e)
+	{
+		std::cerr << "Can't execute form, " << e.what() << '\n';
 	}
 }
 

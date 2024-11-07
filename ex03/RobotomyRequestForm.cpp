@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:21:02 by juestrel          #+#    #+#             */
-/*   Updated: 2024/11/05 14:50:15 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/11/07 10:22:21 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	this->checkValidity(executor);
 	std::cout << "*Drilling noises*. ";
+	srand(time(NULL));
 	rand() % 2 == 0 ? std::cout << "\033[1;32m" << this->getTarget() << " has been succesfully robotomized\033[0m" << std::endl : std::cout << "\033[1;31m" << this->getTarget() << " couldn't be robotomized\033[0m" << std::endl;
 }
 
